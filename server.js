@@ -17,6 +17,7 @@ io.on("connection", socket => {
 
     socket.on("stream", data => {
         socket.broadcast.emit("stream", data);
+        console.log(data);
     });
 
 
