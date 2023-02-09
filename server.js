@@ -16,8 +16,8 @@ router.get("/", (req, res) => {
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000",
-        //origin: "https://space-game123.netlify.app/"
+        //origin: "http://localhost:3000",
+        origin: "https://space-game123.netlify.app/"
     }
 });
 
