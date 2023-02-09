@@ -5,7 +5,8 @@
     "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon server.js"
+        "start": "nodemon server.js",
+        "build": "./node_modules/.bin/netlify-lambda build src"
     },
     "keywords": [],
     "author": "",
@@ -13,6 +14,8 @@
     "dependencies": {
         "cors": "^2.8.5",
         "express": "^4.18.2",
+        "lamda": "^0.4.1",
+        "netlify-lambda": "^2.0.15",
         "nodemon": "^2.0.20",
         "socket.io": "^4.6.0"
     }
