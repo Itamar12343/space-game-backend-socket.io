@@ -31,11 +31,13 @@ io.on("connection", socket => {
 
     socket.on("join_room", data => {
         socket.join(data);
+        console.log(data);
     });
 
     socket.on("space_sheep_position", data => {
         socket.to(data.room).emit("space_sheep_position", data.leftPosition);
-        console.log(data.leftPosition);
+        //socket.broadcast.emit("space_sheep_position", data.leftPosition);
+        console.log(data.room + " " + data.leftPosition);
     });
 
 });
