@@ -29,6 +29,14 @@ io.on("connection", socket => {
         console.log(data + "heyhh");
     });
 
+    socket.on("join_room", data => {
+        socket.join(data);
+    });
+
+    socket.on("space_sheep_position", data => {
+        socket.to(data.room).emit("space_sheep_position", data.leftPosition);
+        console.log(data.leftPosition);
+    });
 
 });
 
