@@ -31,6 +31,7 @@ io.on("connection", socket => {
 
     socket.on("join_room", room => {
         socket.join(room);
+        console.log(room);
     });
 
     socket.on("space_sheep_position", data => {
