@@ -29,15 +29,15 @@ io.on("connection", socket => {
         console.log(data + "heyhh");
     });
 
-    socket.on("join_room", data => {
-        socket.join(data);
-        console.log(data);
+    socket.on("join_room", room => {
+        socket.join(room);
     });
 
     socket.on("space_sheep_position", data => {
-        socket.to(data.room).emit("space_sheep_position", data.leftPosition);
+        socket.to(data.room).emit("space_sheep_position", data.position);
+        console.log(data);
         //socket.broadcast.emit("space_sheep_position", data.leftPosition);
-        console.log(data.room + " " + data.leftPosition);
+        //console.log(data.room + " " + data.leftPosition);
     });
 
 });
