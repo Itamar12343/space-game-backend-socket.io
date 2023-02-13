@@ -31,8 +31,12 @@ io.on("connection", socket => {
 
     socket.on("join_room", room => {
         socket.join(room);
-        let h = io.sockets.adapter.rooms.get(room).size;
-        console.log(h);
+        let numberOfUsers = io.sockets.adapter.rooms.get(room).size;
+        if (numberOfUsers >= 3) {
+            socket.leave(room);
+            socket.emit("reject_room", "the room is full");
+        }
+        console.log(numberOfUsers);
     });
 
     socket.on("leave_room", room => {
@@ -43,9 +47,6 @@ io.on("connection", socket => {
         socket.to(data.room).emit("space_sheep_position", data.position);
     });
 
-    socket.on("disconnect", () => {
-        console.log("disconnected");
-    })
 
 });
 
