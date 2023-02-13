@@ -31,15 +31,21 @@ io.on("connection", socket => {
 
     socket.on("join_room", room => {
         socket.join(room);
-        console.log(room);
+        let h = io.sockets.adapter.rooms.get(room).size;
+        console.log(h);
+    });
+
+    socket.on("leave_room", room => {
+        socket.leave(room);
     });
 
     socket.on("space_sheep_position", data => {
         socket.to(data.room).emit("space_sheep_position", data.position);
-        console.log(data);
-        //socket.broadcast.emit("space_sheep_position", data.leftPosition);
-        //console.log(data.room + " " + data.leftPosition);
     });
+
+    socket.on("disconnect", () => {
+        console.log("disconnected");
+    })
 
 });
 
