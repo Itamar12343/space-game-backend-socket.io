@@ -35,8 +35,10 @@ io.on("connection", socket => {
         if (numberOfUsers >= 3) {
             socket.leave(room);
             socket.emit("reject_room", "the room is full");
+        } else {
+            socket.emit("aprove_room", "success");
         }
-        console.log(numberOfUsers);
+        //console.log(numberOfUsers);
     });
 
     socket.on("leave_room", room => {
