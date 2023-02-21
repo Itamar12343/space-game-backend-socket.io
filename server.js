@@ -54,6 +54,11 @@ io.on("connection", socket => {
         socket.to(data.room).emit("space_sheep_position", data.position);
     });
 
+    socket.on("shoot", room => {
+        console.log(room);
+        socket.to(room).emit("shoot");
+    });
+
 
 });
 
