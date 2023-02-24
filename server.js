@@ -55,7 +55,6 @@ io.on("connection", socket => {
     });
 
     socket.on("shoot", room => {
-        console.log(room);
         socket.to(room).emit("shoot");
     });
 
