@@ -8,17 +8,17 @@ const port = process.env.Port || 3001;
 const router = express.Router();
 app.use(router, cors());
 
-router.get("/", (req, res) => {
+/*router.get("/", (req, res) => {
     res.json({
         "h": "hgf"
     });
-});
+});*/
 
 const io = new Server(server, {
     cors: {
         //origin: "http://localhost:3000",
-        //origin: ["https://space-game123.netlify.app", "http://localhost:3000"]
-        origin: "*"
+        origin: ["https://space-game123.netlify.app", "http://localhost:3000"]
+            //origin: "*"
     }
 });
 
