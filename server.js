@@ -58,6 +58,10 @@ io.on("connection", socket => {
         socket.to(room).emit("shoot");
     });
 
+    socket.on("I got hit", room => {
+        socket.to(room).emit("he got hit");
+    });
+
 
 });
 
