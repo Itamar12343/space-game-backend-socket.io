@@ -52,6 +52,7 @@ io.on("connection", socket => {
 
     socket.on("space_sheep_position", data => {
         socket.to(data.room).emit("space_sheep_position", data.position);
+        //console.log(data.position);
     });
 
     socket.on("shoot", room => {
