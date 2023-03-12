@@ -63,6 +63,9 @@ io.on("connection", socket => {
         socket.to(room).emit("he got hit");
     });
 
+    socket.on("I lost", room => {
+        socket.to(room).emit("you won");
+    });
 
 });
 
